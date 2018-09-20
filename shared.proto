@@ -3,6 +3,23 @@ syntax = "proto3";
 package gitaly;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/descriptor.proto";
+
+message CoordinatorMsg {
+  enum Operation {
+    READ = 0;
+    WRITE = 1;
+    CREATE = 2;
+    DESTROY = 3;
+  }
+
+  Operation op = 1;
+}
+
+extend google.protobuf.MethodOptions {
+  // Random high number..
+  CoordinatorMsg op_type = 82305;
+}
 
 option go_package = "gitalypb";
 

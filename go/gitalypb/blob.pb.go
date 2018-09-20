@@ -256,6 +256,7 @@ It has these top-level messages:
 	SearchFilesByContentResponse
 	ServerInfoRequest
 	ServerInfoResponse
+	CoordinatorMsg
 	Repository
 	GitCommit
 	CommitAuthor
