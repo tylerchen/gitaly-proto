@@ -6,15 +6,12 @@ import "shared.proto";
 
 service RepositoryService {
   rpc RepositoryExists(RepositoryExistsRequest) returns (RepositoryExistsResponse) {
-    option (op_type).op = READ;
   }
   rpc RepackIncremental(RepackIncrementalRequest) returns (RepackIncrementalResponse) {
-    option (op_type).op = WRITE;
   }
   rpc RepackFull(RepackFullRequest) returns (RepackFullResponse) {
   }
   rpc GarbageCollect(GarbageCollectRequest) returns (GarbageCollectResponse) {
-    option (op_type).op = WRITE;
   }
   rpc RepositorySize(RepositorySizeRequest) returns (RepositorySizeResponse) {}
   rpc ApplyGitattributes(ApplyGitattributesRequest) returns (ApplyGitattributesResponse) {
@@ -65,6 +62,7 @@ service RepositoryService {
 }
 
 message RepositoryExistsRequest {
+  option (op_type).op = READ;
   Repository repository = 1;
 }
 
@@ -73,6 +71,7 @@ message RepositoryExistsResponse {
 }
 
 message RepackIncrementalRequest {
+  option (op_type).op = WRITE;
   Repository repository = 1;
 }
 

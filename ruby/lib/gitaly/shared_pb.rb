@@ -11,8 +11,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_enum "gitaly.CoordinatorMsg.Operation" do
     value :READ, 0
     value :WRITE, 1
-    value :CREATE, 2
-    value :DESTROY, 3
   end
   add_message "gitaly.Repository" do
     optional :storage_name, :string, 2
