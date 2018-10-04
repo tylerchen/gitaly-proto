@@ -9,8 +9,6 @@ message CoordinatorMsg {
   enum Operation {
     READ = 0;
     WRITE = 1;
-    CREATE = 2;
-    DESTROY = 3;
   }
 
   Operation op = 1;
