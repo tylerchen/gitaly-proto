@@ -267,6 +267,19 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "gitaly.SearchFilesByContentResponse" do
     repeated :matches, :bytes, 1
   end
+  add_message "gitaly.ApplyPatchRequest" do
+    optional :repository, :message, 1, "gitaly.Repository"
+    optional :branch, :bytes, 2
+    optional :patches, :bytes, 3
+  end
+  add_message "gitaly.ApplyPatchResponse" do
+    optional :result, :enum, 1, "gitaly.ApplyPatchResponse.Result"
+  end
+  add_enum "gitaly.ApplyPatchResponse.Result" do
+    value :SUCCESS, 0
+    value :DOES_NOT_APPLY, 1
+    value :ERROR, 2
+  end
 end
 
 module Gitaly
@@ -342,4 +355,7 @@ module Gitaly
   SearchFilesByNameResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.SearchFilesByNameResponse").msgclass
   SearchFilesByContentRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.SearchFilesByContentRequest").msgclass
   SearchFilesByContentResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.SearchFilesByContentResponse").msgclass
+  ApplyPatchRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.ApplyPatchRequest").msgclass
+  ApplyPatchResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.ApplyPatchResponse").msgclass
+  ApplyPatchResponse::Result = Google::Protobuf::DescriptorPool.generated_pool.lookup("gitaly.ApplyPatchResponse.Result").enummodule
 end

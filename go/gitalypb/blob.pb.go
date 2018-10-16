@@ -253,6 +253,8 @@ It has these top-level messages:
 	SearchFilesByNameResponse
 	SearchFilesByContentRequest
 	SearchFilesByContentResponse
+	ApplyPatchRequest
+	ApplyPatchResponse
 	ServerInfoRequest
 	ServerInfoResponse
 	Repository
